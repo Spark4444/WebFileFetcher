@@ -1,4 +1,4 @@
-# WebDownloader
+# Web File Fetcher
 
 WebDownloader is an npm package for fetching web content efficiently using TypeScript. It provides a simple API to fetch files from URLs and can be easily integrated into Node.js projects.
 
