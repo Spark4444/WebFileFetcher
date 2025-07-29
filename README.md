@@ -2,7 +2,7 @@
 
 WebDownloader is an npm package for fetching web content efficiently using TypeScript. It provides a simple API to fetch files from URLs and can be easily integrated into Node.js projects.
 
-## Why should you use this package over fetching files directly?
+## Why should i use this package over fetching files directly?
 Since it uses Puppeteer, it can prevents issues with CORS and other restrictions that might block direct HTTP requests, making it a robust solution for fetching web assets directly from the browser context.
 
 ## Features
@@ -33,5 +33,5 @@ Fetches a file from the specified URL and returns its content as a string.
 
 If the file is not an HTML/JS/CSS file, it will return a base64 encoded string of the file content.
 
-## Current state of the project
+## Current state of this project
 Finished.
