@@ -15,7 +15,7 @@ export function stringToDataURI(content: Buffer, fileName: string): string {
 }
 
 // Function to download a file from a URL and save it to the output directory
-export async function downloadAsset(url: string): Promise<string | undefined> {
+export async function downloadFile(url: string): Promise<string | undefined> {
     // Launch puppeteer and navigate to the URL
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
