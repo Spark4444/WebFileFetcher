@@ -1,0 +1,36 @@
+{
+  "name": "web-downloader",
+  "version": "3.0.0",
+  "description": "A simple web file downloader using Puppeteer",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "file",
+    "downloader",
+    "download",
+    "web-downloader",
+    "web",
+    "assets",
+    "puppeteer"
+  ],
+  "author": "Spark4444",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "readme": "README.md",
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "dependencies": {
+    "mime": "^4.0.7",
+    "puppeteer": "^24.15.0",
+    "ts-node": "^10.9.2"
+  }
+}
