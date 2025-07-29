@@ -1,7 +1,7 @@
 {
-  "name": "web-downloader",
-  "version": "1.0.0",
-  "description": "A simple web file downloader using Puppeteer",
+  "name": "web-file-fetcher",
+  "version": "1.0.5",
+  "description": "A simple web file fetcher using Puppeteer",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -12,7 +12,7 @@
     "file",
     "downloader",
     "download",
-    "web-downloader",
+    "web-file-fetcher",
     "web",
     "assets",
     "puppeteer"
@@ -21,7 +21,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Spark4444/WebDownloader"
+    "url": "https://github.com/Spark4444/WebFileFetcher"
   },
   "readme": "README.md",
   "files": [
