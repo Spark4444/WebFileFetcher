@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stringToDataURI = stringToDataURI;
-exports.downloadAsset = downloadAsset;
+exports.fetchFile = fetchFile;
 const path_1 = __importDefault(require("path"));
 const mime_1 = __importDefault(require("mime"));
 const puppeteer_1 = __importDefault(require("puppeteer"));
@@ -18,7 +18,7 @@ function stringToDataURI(content, fileName) {
     return `data:${mimeType};base64,${base64Data}`;
 }
 // Function to download a file from a URL and save it to the output directory
-async function downloadAsset(url) {
+async function fetchFile(url) {
     // Launch puppeteer and navigate to the URL
     const browser = await puppeteer_1.default.launch();
     const page = await browser.newPage();

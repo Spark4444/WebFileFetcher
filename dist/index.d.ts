@@ -1,3 +1,3 @@
 export declare function stringToDataURI(content: Buffer, fileName: string): string;
-export declare function downloadAsset(url: string): Promise<string | undefined>;
+export declare function fetchFile(url: string): Promise<string>;
 //# sourceMappingURL=index.d.ts.map
