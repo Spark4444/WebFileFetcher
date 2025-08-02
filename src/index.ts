@@ -14,8 +14,8 @@ export function stringToDataURI(content: Buffer, fileName: string): string {
     return `data:${mimeType};base64,${base64Data}`;
 }
 
-// Function to download a file from a URL and save it to the output directory
-export async function fetchFile(url: string): Promise<string> {
+// Function to download a file from a URL and return its content as a string or base64 data URI
+export default async function fetchFile(url: string): Promise<string> {
     // Launch puppeteer and navigate to the URL
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
@@ -28,18 +28,34 @@ export async function fetchFile(url: string): Promise<string> {
     // Get the response buffer
     const content = await viewResponse.buffer();
 
+    // Get MIME type from response headers
+    const headers = viewResponse.headers();
+    const contentType = headers["content-type"]?.split(";")[0] || "";
+
     // Get the file name and extension from the URL
     const fileName = path.basename(url.split("?")[0]);
     const fileExtension = path.extname(fileName);
 
     let output = "";
-    if (fileExtension === ".js" || fileExtension === ".css" || fileExtension === ".html") {
+    
+    // Use content type from headers if no extension, otherwise fall back to extension check
+    const isTextBased = contentType.includes("text/") || 
+                       contentType.includes("application/javascript") ||
+                       contentType.includes("application/json") ||
+                       fileExtension === ".js" || 
+                       fileExtension === ".css" || 
+                       fileExtension === ".html";
+
+    if (isTextBased) {
         // Convert buffer to string for text-based files
         output = content.toString("utf-8");
     } 
     else {
         // For other files convert to base64 data URI
-        output = stringToDataURI(content, fileName) || "";
+        // Use actual MIME type from headers instead of guessing from filename
+        const mimeTypeForDataUri = contentType || mime.getType(fileName) || "application/octet-stream";
+        const base64Data = content.toString("base64");
+        output = `data:${mimeTypeForDataUri};base64,${base64Data}`;
     }
 
     // Close the browser
